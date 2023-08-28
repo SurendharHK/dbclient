@@ -1,0 +1,25 @@
+syntax ="proto3";
+
+option go_package ="github.com/kiran-blockchain/netxd-go-advanced/dbclient/customer";
+
+package customer;
+
+service CustomerService{
+    rpc AddCustomer (Customer) returns (CustomerResponse);
+    rpc GetCustomers (Empty) returns (CustomerList);
+}
+
+message Customer{
+    string name =1;
+    float balance =2;
+
+}
+message CustomerResponse{
+    string id=1;
+
+}
+message CustomerList{
+    repeated Customer customers =1;
+}
+
+message Empty{}
